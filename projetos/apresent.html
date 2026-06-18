@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <title>Análise Eleitoral de 2004 - Curitiba e Porto Alegre</title>
+    <style>
+        body {
+            margin: 0;
+            padding: 20px;
+            font-family: 'Segoe UI', -apple-system, BlinkMacSystemFont, Roboto, Helvetica, Arial, sans-serif;
+            background-color: #f4f6f9;
+            color: #334155;
+            line-height: 1.6;
+        }
+        
+        .site-wrapper {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+        
+        /* Cabeçalho do Site */
+        .site-navbar {
+            background-color: #1e293b;
+            color: #ffffff;
+            padding: 20px 24px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-bottom: 4px solid #3b82f6;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+        }
+        
+        .site-navbar .brand {
+            font-size: 20px;
+            font-weight: 800;
+            letter-spacing: -0.5px;
+            color: #f8fafc;
+        }
+        
+        .site-navbar .tagline {
+            font-size: 13px;
+            color: #94a3b8;
+            margin-top: 4px;
+        }
+
+        .site-nav-links {
+            margin-top: 15px;
+            padding-top: 12px;
+            border-top: 1px solid #334155;
+            font-size: 13px;
+        }
+        
+        .site-nav-links span {
+            color: #64748b;
+            margin-right: 10px;
+        }
+        
+        .site-nav-links a {
+            color: #3b82f6;
+            text-decoration: none;
+            margin-right: 15px;
+            font-weight: 600;
+        }
+
+        .site-nav-links a:hover {
+            text-decoration: underline;
+        }
+        
+        /* Seções de Cidades */
+        .city-section {
+            background: #ffffff;
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 35px;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05);
+            border: 1px solid #e2e8f0;
+        }
+        
+        .city-header-bar {
+            border-left: 6px solid #1e40af;
+            padding-left: 15px;
+            margin-bottom: 25px;
+        }
+        
+        .city-section.poa .city-header-bar {
+            border-left-color: #b91c1c;
+        }
+
+        .city-section.presentation-sec .city-header-bar {
+            border-left-color: #0d9488;
+        }
+        
+        .city-title {
+            font-size: 24px;
+            color: #0f172a;
+            margin: 0;
+            font-weight: 800;
+            text-transform: uppercase;
+        }
+        
+        /* PRIORIDADE 1: Tópicos e Subtópicos */
+        .topic-container {
+            margin-bottom: 30px;
+        }
+        
+        .topic-title {
+            font-size: 18px;
+            color: #1e3a8a;
+            font-weight: 700;
+            margin: 20px 0 15px 0;
+            padding-bottom: 6px;
+            border-bottom: 2px solid #cbd5e1;
+        }
+        
+        .poa .topic-title {
+            color: #991b1b;
+        }
+
+        .presentation-sec .topic-title {
+            color: #0f766e;
+        }
+        
+        .subtopic-card {
+            background-color: #fdfdfd;
+            border: 1px solid #e2e8f0;
+            border-radius: 6px;
+            padding: 16px;
+            margin-bottom: 16px;
+        }
+        
+        .subtopic-name {
+            font-size: 15px;
+            color: #0f172a;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .subtopic-summary {
+            font-size: 14px;
+            color: #2563eb;
+            font-weight: 600;
+            font-style: italic;
+            margin: 0 0 12px 0;
+        }
+        
+        .poa .subtopic-summary {
+            color: #dc2626;
+        }
+        
+        /* PRIORIDADE 2: Anotações-Chave (Destaque Intermediário) */
+        .key-notes-box {
+            background-color: #f0fdf4;
+            border-left: 4px solid #16a34a;
+            padding: 12px;
+            margin: 12px 0;
+            border-radius: 0 4px 4px 0;
+        }
+        
+        .poa .key-notes-box {
+            background-color: #fff7ed;
+            border-left-color: #ea580c;
+        }
+        
+        .key-notes-title {
+            font-size: 11px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            color: #166534;
+            font-weight: 700;
+            margin-bottom: 4px;
+        }
+        
+        .poa .key-notes-title { 
+            color: #9a3412; 
+        }
+        
+        .key-notes-content {
+            font-size: 13px;
+            color: #1e293b;
+            font-weight: 600;
+        }
+        
+        .emphasis-metric {
+            background-color: #ffffff;
+            padding: 2px 6px;
+            border-radius: 4px;
+            border: 1px solid rgba(0,0,0,0.08);
+            color: #0f172a;
+        }
+        
+        /* PRIORIDADE 3: Explicações (Texto Recessivo) */
+        .explanation-box {
+            font-size: 13.5px;
+            color: #64748b;
+            text-align: justify;
+            margin-top: 12px;
+            padding-top: 10px;
+            border-top: 1px dashed #e2e8f0;
+        }
+
+        /* Estilos específicos da Apresentação */
+        .speech-intro {
+            background-color: #f0fdfa;
+            border: 1px solid #ccfbf1;
+            padding: 14px;
+            border-radius: 6px;
+            font-style: italic;
+            color: #0d9488;
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .presentation-list {
+            margin: 0;
+            padding-left: 20px;
+        }
+
+        .presentation-list li {
+            margin-bottom: 15px;
+            font-size: 14.5px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="site-wrapper">
+
+    <!-- Cabeçalho Principal do Site -->
+    <div class="site-navbar">
+        <div class="brand">Plataforma de Análise Histórico-Eleitoral</div>
+        <div class="tagline">Estudo de Caso: "Da Expectativa de Vitória à Derrota" — Eleições Municipais de 2004</div>
+        <div class="site-nav-links">
+            <span>Ir para:</span>
+            <a href="#curitiba">1. Cenário de Curitiba</a>
+            <a href="#porto-alegre">2. Cenário de Porto Alegre</a>
+            <a href="#apresentacao" style="color: #0d9488;">3. Roteiro de Apresentação</a>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 1: CURITIBA -->
+    <div class="city-section curitiba" id="curitiba">
+        <div class="city-header-bar">
+            <h1 class="city-title">Cenário de Curitiba</h1>
+        </div>
+
+        <!-- Tópico 1 -->
+        <div class="topic-container">
+            <h2 class="topic-title">Tópico 1: A Hegemonia dos Urbanistas e o Desgaste do Modelo</h2>
+            
+            <!-- Subtópico A -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico A (O domínio no geral)</div>
+                <p class="subtopic-summary">Curitiba foi controlada por um grupo de centro-direita ligado a reformas urbanas por mais de três décadas.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Dados & Linha do Tempo)</div>
+                    <div class="key-notes-content">
+                        Início da hegemonia: <span class="emphasis-metric">Ano 1971</span> (Jaime Lerner) &bull; Perda do controle: <span class="emphasis-metric">1983</span> &bull; Retorno ao poder: <span class="emphasis-metric">1988</span> &bull; Domínio contínuo por mais de 30 anos.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    A história política recente de Curitiba confunde-se com o domínio de um grupo específico de planejadores urbanos que assumiu o power municipal em 1971, com a primeira nomeação de Jaime Lerner. Esse núcleo — composto também por figuras como Rafael Greca e Cássio Taniguchi — manteve um controle quase ininterrupto da prefeitura por mais de 30 anos, sobrevivendo inclusive à redemocratização. A força desse grupo era tamanha que eles transitavam por diversas legendas (Arena, PDS, PDT, PFL) sem perder a sua identidade e o controle do Executivo local.
+                </div>
+            </div>
+
+            <!-- Subtópico B -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico B (O funcionamento da gestão)</div>
+                <p class="subtopic-summary">A governança baseava-se na premissa de colocar a competência técnica e o planejamento acima da disputa política.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Pilares da Gestão</div>
+                    <div class="key-notes-content">
+                        Abordagem focada estritamente em planejamento e eficiência &bull; Ideologia de "Agentes técnico-políticos" &bull; Blindagem baseada no Plano Diretor de 1966.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    O pilar de sustentação dessa longa hegemonia era o discurso de que a "competência técnica estava acima da política". As gestões operavam sob a ótica de "agentes técnico-políticos", blindando as decisões administrativas sob o argumento do saber científico e da execução do Plano Diretor de 1966. Esse modelo vendia a imagem de uma Curitiba planejada e eficiente, legitimando a permanência dos mesmos nomes no poder sob o pretexto de que eles eram os únicos tecnicamente qualificados para gerir a cidade.
+                </div>
+            </div>
+
+            <!-- Subtópico C -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico C (O desejo de novos perfis)</div>
+                <p class="subtopic-summary">O desgaste da atual administração gerou no eleitorado a firme vontade de substituir a elite tecnocrática.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Métricas de Desgaste)</div>
+                    <div class="key-notes-content">
+                        Rejeição de Taniguchi: <span class="emphasis-metric">27% (ruim/péssimo)</span> em julho &bull; Votação de Bertoldi (Candidato oficial): <span class="emphasis-metric">Míseros 6,23%</span> dos votos válidos &bull; Claro sinal de esgotamento do modelo lernista.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Em 2004, essa fórmula deu claros sinais de exaustão. O então prefeito Cássio Taniguchi enfrentava uma rejeição de 27% (avaliação ruim/péssima) em julho. Mais do que uma insatisfação com o prefeito, os dados indicavam um esgotamento do próprio modelo lernista. O eleitorado curitibano passava a demandar novas lideranças e novos perfis políticos, o que ficou categoricamente provado no primeiro turno daquele ano, quando o candidato apoiado oficialmente pelo prefeito (Osmar Bertoldi, do PFL) amargou apenas 6,23% dos votos válidos.
+                </div>
+            </div>
+        </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-container">
+            <h2 class="topic-title">Tópico 2: A Dinâmica das Forças Políticas na Disputa de 2004</h2>
+            
+            <!-- Subtópico A -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico A (A fragmentação do grupo do governo)</div>
+                <p class="subtopic-summary">A base governista rachou após o vice-prefeito Beto Richa romper com o prefeito e lançar voo solo.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Rachas Políticos)</div>
+                    <div class="key-notes-content">
+                        Ascensão de Beto Richa &bull; Rompimento motivado pelo aumento da tarifa de ônibus &bull; Divisão do grupo de situação entre candidaturas do PSDB e PFL.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Percebendo o desgaste de Taniguchi, o grupo de situação se fragmentou. O vice-prefeito Beto Richa (PSDB) rompeu publicamente com a administração municipal no primeiro semestre de 2004, utilizando como estopim político sua oposição ao aumento da tarifa de ônibus patrocinada pelo prefeito. Com o racha, a situação lançou candidaturas separadas (PSDB e PFL). Isso borrou as fronteiras políticas tradicionais, permitindo que Richa se apresentasse como um ator "neutro" e não carregasse o fardo da rejeição do governo do qual fez parte.
+                </div>
+            </div>
+
+            <!-- Subtópico B -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico B (A expectativa do PT)</div>
+                <p class="subtopic-summary">O PT projetava uma vitória definitiva impulsionado pelo histórico recall eleitoral do ano de 2000.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Expectativa Opositora)</div>
+                    <div class="key-notes-content">
+                        Intenção inicial de voto: Ângelo Vanhoni <span class="emphasis-metric">liderava com 26%</span> em julho &bull; Crescimento petista escorado na eleição de 2000 &bull; Aliança estratégica com o PMDB de Requião.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Do lado da oposição, o clima era de amplo otimismo. O candidato do PT, Ângelo Vanhoni, vinha de um desempenho histórico na eleição de 2000, quando assustou os urbanistas ao levar a disputa para o segundo turno e perder por uma margem apertada de menos de 60 mil votos. Para 2004, o PT costurou uma forte aliança com o PMDB do governador Roberto Requião para unificar as forças opositoras. Como Vanhoni liderava as pesquisas pré-eleitorais em julho com 26%, a campanha era encarada internamente como o grande "tira-teima" e a chance real de quebrar a hegemonia de direita na capital.
+                </div>
+            </div>
+
+            <!-- Subtópico C -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico C (O desfecho)</div>
+                <p class="subtopic-summary">Beto Richa venceu o segundo turno porque o eleitorado optou por uma transição de mudança considerada mais segura.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Resultados das Urnas)</div>
+                    <div class="key-notes-content">
+                        Vitória de Beto Richa no 2º turno com <span class="emphasis-metric">54,78%</span> &bull; Votação de Vanhoni: <span class="emphasis-metric">45,22%</span> &bull; Preferência por transição suave e institucionalmente segura.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Apesar de as pesquisas Ibope apontarem um empate técnico linear ao longo de toda a campanha, as urnas deram a vitória a Beto Richa no segundo turno por 54,78% contra 45,22% de Vanhoni. A análise do comportamento eleitoral conclui que o curitibano de fato queria mudar e sepultar o modelo tecnocrático antigo. Contudo, na hora de decidir, o eleitorado rejeitou o perfil considerado mais radical do PT e preferiu Richa, enxergando no tucano uma transição menos disruptiva, mais suave e institucionalmente segura.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 2: PORTO ALEGRE -->
+    <div class="city-section poa" id="porto-alegre">
+        <div class="city-header-bar">
+            <h1 class="city-title">Cenário de Porto Alegre</h1>
+        </div>
+
+        <!-- Tópico 1 -->
+        <div class="topic-container">
+            <h2 class="topic-title">Tópico 1: O Declínio da Fortaleza Petista na "Meca da Esquerda"</h2>
+            
+            <!-- Subtópico A -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico A (O domínio no geral)</div>
+                <p class="subtopic-summary">Porto Alegre foi governada consecutivamente pelo PT por 16 anos, tornando-se uma vitrine internacional da esquerda.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Histórico do Governo)</div>
+                    <div class="key-notes-content">
+                        Governo do PT nos últimos <span class="emphasis-metric">16 anos</span> &bull; Iniciado em 1988 por Olívio Dutra &bull; Rotulada pelo Le Monde como a "Meca da Esquerda".
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    A trajetória política de Porto Alegre confunde-se com a história da Frente Popular liderada pelo PT, que assumiu o poder em 1988 com Olívio Dutra e emendou quatro mandatos consecutivos na prefeitura. Essa longevidade, somada a inovações na gestão pública, deu enorme visibilidade internacional à capital gaúcha, que passou a ser rotulada pelo jornal francês Le Monde como a "Meca da esquerda Latino-americana". O partido detinha uma base militante orgânica extremamente forte e consolidada na cidade.
+                </div>
+            </div>
+
+            <!-- Subtópico B -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico B (O funcionamento da gestão)</div>
+                <p class="subtopic-summary">A governança baseava-se na forte participação popular e em valores democráticos consolidados.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Modelo Municipal)</div>
+                    <div class="key-notes-content">
+                        Gestão com forte enfoque em políticas públicas &bull; Criação e aplicação do Orçamento Participativo &bull; Desgastes gerados por prévias internas agressivas.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    O pilar de sustentação desse ciclo de 16 anos era o apelo aos valores democráticos e à participação direta dos cidadãos, simbolizada de forma contundente pelo Orçamento Participativo. A gestão funcionava de maneira tão descentralizada e focada na mobilização social que o próprio slogan da campanha de 2004 era "Porto Alegre, foi a gente que fez". Esse modelo, contudo, acabou gerando duas consequências negativas: fissuras internas severas causadas por prévias partidárias historicamente muito agressivas e acusações de opositores sobre a excessiva partidarização e o "jeito autoritário" de a cúpula do PT decidir os rumos municipais.
+                </div>
+            </div>
+
+            <!-- Subtópico C -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico C (O desejo de novos perfis)</div>
+                <p class="subtopic-summary">Mesmo com a gestão bem avaliada, o eleitorado demonstrava um gradual desejo de substituição partidária.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Métricas e Contradições)</div>
+                    <div class="key-notes-content">
+                        Rejeição do prefeito João Verle: <span class="emphasis-metric">Apenas 14%</span> &bull; Ápice eleitoral do PT: <span class="emphasis-metric">Ano 1996</span> &bull; Contradição latente entre a boa avaliação técnica e o desejo político de mudança.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Nas eleições de 2004, a fortaleza petista apresentou um paradoxo intrigante: as pesquisas apontavam que apenas 14% dos eleitores rejeitavam a administração do prefeito João Verle. Contudo, uma análise histórica detalhada indicava que o teto eleitoral do PT na capital vinha encolhendo gradativamente a cada eleição majoritária desde o ápice atingido em 1996. Havia um anseio latente por substituição e alternância no poder, o que impedia o candidato governista de converter a boa avaliação administrativa em votos automáticos nas urnas.
+                </div>
+            </div>
+        </div>
+
+        <!-- Tópico 2 -->
+        <div class="topic-container">
+            <h2 class="topic-title">Tópico 2: A Dinâmica das Forças Políticas na Disputa de 2004</h2>
+            
+            <!-- Subtópico A -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico A (A fragmentação e os ataques da oposição)</div>
+                <p class="subtopic-summary">Os partidos opositores tradicionais fragmentaram-se, mas desferiram ataques ferozes para desestruturar o legado petista.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Estratégia Opositora)</div>
+                    <div class="key-notes-content">
+                        Fragmentação estratégica da oposição para o ataque &bull; Candidaturas de Onyx Lorenzoni, Vieira da Cunha e Jair Soares &bull; Ataques focados na saúde e na área social.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Ao contrário de uma oposição unificada, as forças contrárias ao PT lançaram múltiplas candidaturas, fragmentando-se em nomes como Onyx Lorenzoni (PFL/PSDB), Vieira da Cunha (PDT) e Jair Soares (PP). Esses atores adotaram a estratégia tradicional de desferir ataques pesados e ferozes contra a saúde e a área social do município. Essa enxurrada de críticas pressionou o candidato petista, Raul Pont, a gastar a maior parte do seu tempo de televisão defendendo o legado histórico partidário em vez de propor novas ideias, desgastando a imagem de invulnerabilidade do projeto.
+                </div>
+            </div>
+
+            <!-- Subtópico B -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico B (A expectativa do PT e o fator nacional)</div>
+                <p class="subtopic-summary">O PT projetava manter sua hegemonia local, mas foi prejudicado pelo desgaste inicial do recém-assumido Governo Lula.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Contexto de Expectativa)</div>
+                    <div class="key-notes-content">
+                        Intenção inicial: Raul Pont <span class="emphasis-metric">liderava com 32%</span> em julho &bull; Peso do fator nacional (Governo Lula pós-2002) &bull; Desencanto e desmobilização da militância local.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    O PT iniciou a campanha com grande expectativa de vitória, visto que Raul Pont liderava as pesquisas em julho com 32% das intenções de voto. Todavia, o cenário foi duramente afetado pela esfera federal, já que aquele era o primeiro teste nas urnas após a eleição de Lula à presidência em 2002. A lentidão inicial do Governo Federal em cumprir as transformações prometidas gerou um profundo desencanto nel eleitorado de esquerda de Porto Alegre. O próprio Raul Pont apontou que essa frustração nacional fez com que militantes de base e lideranças sindicais históricas cruzassem os braços e adotassem a neutralidade, esvaziando a força tradicional das ruas.
+                </div>
+            </div>
+
+            <!-- Subtópico C -->
+            <div class="subtopic-card">
+                <div class="subtopic-name">Subtópico C (O desfecho)</div>
+                <p class="subtopic-summary">José Fogaça venceu a eleição ao aglutinar os votos da oposição por meio de um discurso de mudança serena.</p>
+                
+                <div class="key-notes-box">
+                    <div class="key-notes-title">Anotações-Chave (Resultado Final)</div>
+                    <div class="key-notes-content">
+                        Vitória de José Fogaça sobre a prefeitura atual &bull; Posicionamento político como "mudança serena e segura" &bull; Absorção total dos votos da oposição no 2º turno.
+                    </div>
+                </div>
+                
+                <div class="explanation-box">
+                    Diante do bombardeio da oposição tradicional e do recuo petista, o candidato José Fogaça (PPS) utilizou uma estratégia cirúrgica: poupou o PT de ataques agressivos no primeiro turno e apresentou-se como a personificação de uma "mudança serena e segura". Ele soube absorver o bônus das coisas boas da cidade (prometendo inclusive manter o Orçamento Participativo), mas criticou o "jeito petista de governar". Essa postura mansa permitiu que, no segundo turno, Fogaça herdasse integralmente os votos dos demais candidatos derrotados, revertendo o jogo e vencendo o pleito ao canalizar o desejo de mudança sem o estigma da agressividade radical.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- SEÇÃO 3: APRESENTAÇÃO (ROTEIRO) -->
+    <div class="city-section presentation-sec" id="apresentacao">
+        <div class="city-header-bar">
+            <h1 class="city-title">Apresentação Oral</h1>
+        </div>
+
+        <!-- Parte 1: Curitiba -->
+        <div class="topic-container">
+            <h2 class="topic-title">1. O Cenário de Curitiba</h2>
+            
+            <div class="speech-intro">
+                "Bom dia, gente. Eu vim contextualizar vocês sobre os cenários nas capitais, começando por Curitiba."
+            </div>
+
+            <div class="subtopic-card">
+                <ul class="presentation-list">
+                    <li>
+                        <strong>A Hegemonia de 30 anos:</strong> Curitiba vivia uma hegemonia política nos últimos 30 anos. Basicamente, apenas um grupo controlava a cidade. Eles acreditavam que, por conhecerem profundamente o plano diretor, eram os únicos capazes de gerir o município. Usavam esse plano para o planejamento estratégico e para ditar a eficiência do crescimento da cidade.
+                    </li>
+                    <li>
+                        <strong>O Desgaste do Modelo:</strong> Porém, após três décadas, o povo começou a ficar cansado das mesmas pessoas, sempre com as mesmas ideias, gerindo tudo. Isso, somado ao aumento na tarifa de ônibus, virou o contexto perfeito para a ascensão de <strong>Beto Richa</strong>, o então vice-prefeito. Ele aproveitou que o grupo hegemônico estava cada vez mais fraco e lançou sua candidatura.
+                    </li>
+                    <li>
+                        <strong>A Força da Oposição:</strong> Por outro lado, o PT vinha em uma grande crescente no município, tendo angariado 48% dos votos na última eleição. Como a atual gestão enfrentava sonoros 27% de rejeição, o Partido dos Trabalhadores acreditava seriamente que conseguiria vencer a eleição.
+                    </li>
+                    <li>
+                        <strong>O Desfecho:</strong> No entanto, Beto Richa adotou um discurso de <strong>"mudar, pero no mucho"</strong>. Ele defendia mudanças, mas argumentava que elas não deviam ser tão radicals quanto as propostas pelo PT. Por causa disso, os cidadãos acharam mais seguro votar nele, que acabou vencendo as eleições em Curitiba.
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Parte 2: Porto Alegre -->
+        <div class="topic-container">
+            <h2 class="topic-title">2. O Cenário de Porto Alegre</h2>
+            
+            <div class="speech-intro" style="background-color: #fff7ed; border-color: #ffedd5; color: #ea580c;">
+                "Já o contexto de Porto Alegre era totalmente oposto em relação a quem governava."
+            </div>
+
+            <div class="subtopic-card">
+                <ul class="presentation-list">
+                    <li>
+                        <strong>A "Meca da Esquerda":</strong> Pelos últimos 16 anos, a capital gaúcha foi governada pelo PT, servindo inclusive como uma vitrine internacional da esquerda na América Latina, sendo chamada por jornais e analistas de a "Meca da esquerda latino-americana". A gestão se baseava fortemente na participação popular e em valores democráticos consolidados.
+                    </li>
+                    <li>
+                        <strong>A Estratégia da Oposição:</strong> No entanto, assim como em Curitiba, o povo — após tanto tempo sendo governado pelo mesmo grupo — começou a desejar mudança. Dessa vez, a estratégia da oposição em Porto Alegre foi se fragmentar. Eles se dividiram para lançar várias candidaturas focadas em ataques à gestão, principalmente na área da saúde.
+                    </li>
+                    <li>
+                        <strong>O Desfecho:</strong> Com essa estratégia, o PT chegou ao segundo turno com uma rejeição pulverizada, mas muito presente. <strong>José Fogaça</strong> aproveitou o cenário, aglutinou o voto de todos os outros opositores e conseguiu vencer a eleição, indo contra o jeito petista de governar.
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+</body>
+</html>
